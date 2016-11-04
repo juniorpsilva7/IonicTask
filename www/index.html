@@ -36,14 +36,35 @@
   </head>
   <body ng-app="starter">
 
-    <ion-pane>
+    <ion-pane ng-controller="mainController">
       <ion-header-bar class="bar-energized">
         <h1 class="title">Ionic Tasks</h1>
       </ion-header-bar>
-      <ion-content ng-controller="mainController">
+
+      <ion-footer-bar class="bar-calm">
+        <div class="row">
+          <div class="col col-80">
+            <strong>Exibir Finalizadas</strong>
+          </div>
+
+          <div class="col col-20">
+            <label class="toggle">
+              <input type="checkbox" ng-model="showMarked">
+              <div class="track">
+                <div class="handle">
+                </div>
+              </div>
+            </label>
+          </div>        
+        </div>
+        
+      </ion-footer-bar>
+
+
+      <ion-content>
 
         <ion-list>
-          <ion-item ng-repeat="item in lista track by $index">
+          <ion-item ng-repeat="item in lista track by $index" ng-hide="onShowItem(item)">
             <div class="row">
               <div class="col col-90">
                 {{item.nome}}
@@ -55,14 +76,11 @@
               </button>
               </div>
             </div>
-            
-            
           </ion-item>
         </ion-list>
-          
-        
 
       </ion-content>
+
     </ion-pane>
   </body>
 </html>
