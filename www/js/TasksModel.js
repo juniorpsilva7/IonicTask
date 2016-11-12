@@ -5,6 +5,9 @@ function getTasks(){
         {nome:'Item 03', finalizada:false}
         ];
 
+    this.add = function(item){
+        this.items.push(item);
+    };
 
     this.remove = function(item){
         var pos = this.items.indexOf(item);

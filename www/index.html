@@ -63,7 +63,15 @@
 
       <ion-content>
 
-        <button class="button button-block button-assertive" ng-click="onClickRemove()">Remove</button>
+        <div class="row">
+          <div class="col">
+            <button class="button button-block button-positive" ng-click="onItemAdd()">Add</button>
+          </div>
+          <div class="col">
+            <button class="button button-block button-assertive" ng-click="onClickRemove()">Remove</button>
+          </div>
+        </div>
+
         <ion-list show-delete="removeStatus">
           <ion-item ng-repeat="item in lista track by $index" ng-hide="onShowItem(item)">
             <div class="row">
