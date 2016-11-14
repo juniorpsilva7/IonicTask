@@ -43,8 +43,10 @@ app.controller('mainController', function($scope, $ionicPopup, $ionicListDelegat
       buttons: [
         {text: "ok", onTap: function(e){
           item.nome = $scope.data.newTask;
-          if(novo)
-          tasks.add(item);
+          if(novo){
+            tasks.add(item);
+          }
+          tasks.save();
         }},
         {text: "Cancelar"}
         ]
@@ -54,8 +56,9 @@ app.controller('mainController', function($scope, $ionicPopup, $ionicListDelegat
   };
 
   $scope.onMarkTask = function(item){
-    console.log("passou");
+    //console.log("passou");
     item.finalizada  = !item.finalizada;
+    tasks.save();
   };
 
   $scope.onShowItem = function(item){
@@ -75,6 +78,7 @@ app.controller('mainController', function($scope, $ionicPopup, $ionicListDelegat
 
   $scope.onItemRemove = function(item){
     tasks.remove(item);
+    tasks.save();
   };
 
   $scope.onClickRemove = function(){
